@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +30,7 @@ import com.mac.demo.service.BoardService;
 
 
 @RequestMapping("/board")
-@Controller
+@RestController//rest 컨트롤러를 쓰면 모든 메소드에 responsbody가 붙ㅇ
 public class BoardController {
 	
 	
@@ -81,7 +82,6 @@ public class BoardController {
 
 //	게시글 저장
 	@PostMapping("/{categoryMac}/save")
-	@ResponseBody
 	public String save(Board board,
 									@PathVariable("categoryMac") String categoryMac,
 									@RequestParam("files") MultipartFile[] mfiles,
@@ -179,7 +179,6 @@ public class BoardController {
 	
 //  게시글 수정
 	@PutMapping("/{categoryMac}/edit")
-	@ResponseBody
 	public String edit(Board newBoard,
 									@RequestParam("files") MultipartFile[] mfiles,
 									@PathVariable("categoryMac") String categoryMac,
@@ -233,7 +232,6 @@ public class BoardController {
 	
 //======================================== 댓글 ========================================
 	@PostMapping("/comment")
-	@ResponseBody
 	public Map<String, Object> comment(Comment comment, Model model, HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -259,7 +257,6 @@ public class BoardController {
 //======================================== 파일 ========================================
 	
 	@DeleteMapping("/file/delete/{numMac}")
-	@ResponseBody
 	public Map<String, Object> file_delte(@PathVariable("numMac") int numMac, 
 										  Model model, HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -269,7 +266,6 @@ public class BoardController {
 	}
 	
 	@GetMapping("/file/download/{filenum}")
-	@ResponseBody
 	public ResponseEntity<Resource> download(HttpServletRequest request,
 											 @PathVariable(name="filenum", required = false) int FileNum) throws Exception {
 		return svc.download(request, FileNum);

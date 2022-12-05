@@ -14,11 +14,11 @@ public class Board {
 	private String titleMac; //제목
 	private String contentsMac; //내용
 	private java.sql.Date wdateMac; //작성일
-	private String typeMac; //속성(업종등)
 	private String idMac; //유저아이디
 	private int countMac;
-	private String tableMac;
 	private String categoryMac;
+	
+	
 	public int getNumMac() {
 		return numMac;
 	}
@@ -49,12 +49,7 @@ public class Board {
 	public void setWdateMac(java.sql.Date wdateMac) {
 		this.wdateMac = wdateMac;
 	}
-	public String getTypeMac() {
-		return typeMac;
-	}
-	public void setTypeMac(String typeMac) {
-		this.typeMac = typeMac;
-	}
+
 	public String getIdMac() {
 		return idMac;
 	}
@@ -67,12 +62,7 @@ public class Board {
 	public void setCountMac(int countMac) {
 		this.countMac = countMac;
 	}
-	public String getTableMac() {
-		return tableMac;
-	}
-	public void setTableMac(String tableMac) {
-		this.tableMac = tableMac;
-	}
+
 	public String getCategoryMac() {
 		return categoryMac;
 	}

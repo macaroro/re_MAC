@@ -31,10 +31,10 @@ public class HomeController {
 		if(session.getAttribute("idMac")!=null) {
 			String uid = session.getAttribute("idMac").toString();
 			model.addAttribute("idMac",uid);
-			return "thymeleaf/mac/home/dataSource";
+			return "home/dataSource";
 		}
 		
-		return "thymeleaf/mac/home/dataSource";
+		return "home/dataSource";
 	}
 	
 //	사이트소개
@@ -43,9 +43,9 @@ public class HomeController {
 		if(session.getAttribute("idMac")!=null) {
 			String uid = session.getAttribute("idMac").toString();
 			model.addAttribute("idMac",uid);
-			return "thymeleaf/mac/home/siteIntroduction";
+			return "home/introduce";
 		}
-		return "thymeleaf/mac/home/siteIntroduction";
+		return "home/introduce";
 	}
 	
 
